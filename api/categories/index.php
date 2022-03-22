@@ -8,16 +8,16 @@
     }
 
     if($method == 'DELETE'){
-        require_once "delete.php";
+        require_once("delete.php");
 
     }
     elseif($method == 'POST'){
-        require_once "create.php";
+        require_once("create.php");
 
     }
     elseif($method == 'PUT'){
-        require_once "update.php";
+        require_once("update.php");
     }
     else{
-        require_once "singleCategory.php" || "read.php";
+        require_once("singleCategory.php" || "read.php");
     }
