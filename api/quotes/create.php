@@ -24,10 +24,10 @@
 
     if($quote->create()) {
         echo json_encode(
-            array('message' => 'Post created')
+            array('message' => 'Quote created')
         );
     } else {
         echo json_encode(
-            array('message' => 'Post not created')
+        array('message' => 'Quote not created')
         );
     }

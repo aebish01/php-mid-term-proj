@@ -7,10 +7,19 @@
         header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
         header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
     }
-    include_once 'read.php';
-    include_once 'readsingle.php';
-
-    if($method == 'GET'){
-        require_once('read.php');
-    }
     
+
+    if($method == 'DELETE'){
+        require_once("delete.php");
+
+    }
+    elseif($method == 'POST'){
+        require_once("create.php");
+
+    }
+    elseif($method == 'PUT'){
+        require_once("update.php");
+    }
+    else{
+        require_once("readsingle.php" || "read.php");
+    }

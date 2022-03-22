@@ -1,18 +1,33 @@
 <?php
     class Database {
         //params
-        public $url = getenv('JAWSDB_URL');
+
+       // private $hostname = 'localhost';
+        //private $db_name = 'quotesdb';
+        //private $username = 'root';
+        //private $password = '';
+        function __construct()
+        {
+            $this->url = getenv('JAWSDB_URL');
+            $this->conn = null;
+        }
+        //public $url = getenv('JAWSDB_URL');
         public $dbparts = parse_url($url);
 
         private $hostname = $dbparts['host'];
         private $db_name =  ltrim($dbparts['path'],'/');
         private $username = $dbparts['user'];
         private $password = $dbparts['pass'];
-        private $conn;
+        //private $conn;
         
         //connect db
         public function connect() {
-            $this->conn = null;
+        $dbparts = parse_url($this->url);
+
+        $hostname = $dbparts['host'];
+        $db_name =  ltrim($dbparts['path'],'/');
+        $username = $dbparts['user'];
+        $password = $dbparts['pass'];
 
             try{
                 $this->conn = new PDO('mysql:host=' . $this->hostname . ';dbname=' . $this->db_name,
